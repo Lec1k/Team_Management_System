@@ -25,7 +25,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     public void removeEmployee(Integer id) {
-        Employee employee = sessionFactory.getCurrentSession().load(Employee.class, id);
+        Employee employee = (Employee) sessionFactory.getCurrentSession().load(Employee.class, id);
         if(null!= employee){
             sessionFactory.getCurrentSession().delete(employee);
         }
